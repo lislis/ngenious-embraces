@@ -30,6 +30,117 @@
 
       ---
 
+      # Where is my conf?
+
+      ```$ nginx -t```
+
+      default
+
+      or specified while building
+
+      ---
+
+      # Run a different conf?
+
+      ``` $ nginx -c /home/user/nginx.conf```
+
+      ---
+
+      # What does it look like?
+
+      ---
+      # How do I change it
+
+
+      Rebuild!
+
+      ```
+      $ ./configure --with-http_ssl_module \
+                    --with-http_spdy_module \
+                    --with-http_realip_module \
+                    --with-http_stub_status_modul
+      $ make
+      $ sudo make install
+
+      ```
+
+      ---
+
+      # Let's go down the rabbit hole
+
+      ```
+
+      events {
+      }
+      http {
+        server {
+        }
+      }
+      ```
+
+
+      ---
+
+      # running and grepping
+
+      ---
+
+      # the default values
+
+      ```
+
+      user nobody nogroup;
+      worker_processes 1;
+
+      events {
+        worker_connections 512;
+      }
+      http {
+        server {
+          listen *:80;
+          server_name "";
+          root /usr/share/nginx/html;
+        }
+      }
+
+      ```
+
+      ---
+
+      directives
+
+      simple: name param semicolon
+
+      there can be multiple params
+
+
+      context: {}
+
+
+      Typically, simple directives can only be included in specific context directives.
+
+
+      ---
+      directive inheritance
+
+      ---
+      main directives
+
+      ---
+
+      reload the process
+
+      ---
+
+      serve static files
+
+      --
+
+
+
+
+
+
 
     </textarea>
     <script src="remark.min.js"></script>
