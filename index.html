@@ -3,7 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>nginx config with curly embraces</title>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <style>
+      html,
+      body {
+      font-family: PT Sans;
+      font-weight: 400;
+      color: #222;
+      }
+      h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      }
       p, li {
         font-size: 24px;
         line-height: 1.5;
@@ -12,7 +22,7 @@
         line-height: 1.5;
       }
       h1 {
-        margin-bottom: 1em;
+        margin-bottom: .7em;
       }
 
     </style>
@@ -26,17 +36,47 @@
       ## with curly embraces
 
 
-      > ngenious nginx, May 2016
+      ngenious nginx, May 2016
+
+      ---
+
+      # What we'll be looking at
+
+      .toc[
+      - Installing and running
+
+      - Finding the config
+
+      - Learning about the config syntax
+
+      - Configure the basics]
+      - Nginx runs
+      - Finding config
+      - How to train your config
+      - Config Club
+
+      ---
+
+      layout: true
+
+      ## Installing and running
 
       ---
 
       # Where is my conf?
 
-      ```$ nginx -t```
+      ```
+      $ nginx -t
+
+      ```
 
       default
 
       or specified while building
+
+      ???
+
+      some note
 
       ---
 
@@ -134,16 +174,12 @@
 
       serve static files
 
-      --
-
-
-
-
-
-
 
     </textarea>
     <script src="remark.min.js"></script>
-    <script>var slideshow = remark.create();</script>
+    <script>var slideshow = remark.create({
+      highlightLanguage: 'bash',
+      highlightStyle: 'monokai'
+      });</script>
   </body>
 </html>
