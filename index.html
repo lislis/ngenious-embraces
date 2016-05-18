@@ -24,6 +24,9 @@
       h1 {
         margin-bottom: .7em;
       }
+      .remark-code {
+      white-space: normal;
+      }
 
     </style>
   </head>
@@ -43,91 +46,97 @@
       # What we'll be looking at
 
       .toc[
-      - Installing and running
 
       - Finding the config
 
-      - Learning about the config syntax
+      - Syntax and default directives
 
-      - Configure the basics]
-      - Nginx runs
-      - Finding config
-      - How to train your config
-      - Config Club
+      - Other directives]
+
+      ---
+
+      class: center, middle
+      # Finding the config
+      ---
+
+      layout: true
+
+      ## Finding the config
+
+
+      ---
+
+      ### Your config is either:
+
+      --
+
+      - in the default location
+
+      -  where you specified it during the build
+
+      ---
+
+      ### I have no idea
+
+      --
+      ```bash
+      $ nginx -t
+
+      ```
+
+      --
+
+      ```bash
+      nginx: the configuration file /usr/local/etc/nginx/nginx.conf syntax is ok
+      ```
+
+      --
+      (checks whether the config file is valid and exits)
+
+      ---
+
+      ### How do I use a different conf?
+
+      ```bash
+      $ nginx -c /home/user/nginx.conf
+      ```
+
+      ---
+
+      layout: false
+      class: center, middle
+
+      # Syntax and default directives
 
       ---
 
       layout: true
 
-      ## Installing and running
+      # Syntax and default directives
+      ---
+
+      ## What does it look like?
 
       ---
 
-      # Where is my conf?
+      ### Bare minimum
 
-      ```
-      $ nginx -t
-
-      ```
-
-      default
-
-      or specified while building
-
-      ???
-
-      some note
-
-      ---
-
-      # Run a different conf?
-
-      ``` $ nginx -c /home/user/nginx.conf```
-
-      ---
-
-      # What does it look like?
-
-      ---
-      # How do I change it
-
-
-      Rebuild!
-
-      ```
-      $ ./configure --with-http_ssl_module \
-                    --with-http_spdy_module \
-                    --with-http_realip_module \
-                    --with-http_stub_status_modul
-      $ make
-      $ sudo make install
-
-      ```
-
-      ---
-
-      # Let's go down the rabbit hole
-
-      ```
-
+      ```bash
       events {
       }
+
       http {
         server {
-        }
+
+      }
       }
       ```
 
-
       ---
 
-      # running and grepping
+      ### Default
 
-      ---
-
-      # the default values
-
-      ```
+      ```bash
 
       user nobody nogroup;
       worker_processes 1;
@@ -161,9 +170,11 @@
 
 
       ---
+
       directive inheritance
 
       ---
+
       main directives
 
       ---
@@ -174,6 +185,27 @@
 
       serve static files
 
+      ---
+
+
+      layout: false
+
+      Location blocks
+
+      regex
+
+      skipping regex
+
+      naming
+
+
+      Virtual hosts
+
+
+      ---
+
+
+      # Reloading and stopping
 
     </textarea>
     <script src="remark.min.js"></script>
