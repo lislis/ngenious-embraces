@@ -294,36 +294,176 @@
       # Location blocks
       ---
 
+      layout: true
+
+      # Location blocks
 
       ---
 
-      Config changes are not automatically picked up. You have to tell nginx to reload the config.
+      ## The what and why
+
+      --
+
+      Default mapping of request and file
+
+      --
+
+      Location blocks are used for advanced request needs
+
+      --
+
+      This is the equivalent of `Rewrite Rules` in Apache
+
+      --
+
+      Go within a `server` context
 
       ---
 
-      serve static files
+      ## Basic location
+
+      --
+
+      ```
+      location optional_modifier uri_matcher {
+        configuration_directives
+      }
+      ```
+      --
+
+      ```
+      location /foobar/ {
+      root /data;
+      }
+      ```
 
       ---
 
+      ## Paths
+
+      --
+
+      Default requests match against the root path
+
+      --
+
+      If you want to replace the root path use an alias
+
+      --
+
+      ```
+      location /assets/ {
+        alias /data/all-the-assets/;
+      }
+      ```
+      --
+
+      Trailing slash is important!
+
+      ---
+
+      ## Modifiers
+
+      --
+
+      ### Exact match =
+
+      --
+
+      ```
+      location = /foobar/ {
+      ...
+      }
+      ```
+
+      --
+
+      First ones to match
+
+      --
+
+      Terminates after match
+
+      ---
+
+      ## Regex
+
+      --
+
+      ### Case sensitive ~
+
+      ```
+      location ~ \.(gif|jpg)$ {
+      ...
+      }
+      ```
+
+      --
+
+      ### Case insensitive ~*
+
+      ```
+      location ~* \.(gif|jpg)$ {
+      ...
+      }
+      ```
+
+      ---
+
+      ## Regex
+
+      --
+
+      ### Skip regex ^~
+
+      --
+
+      ```
+      location ^~ /foobar/images {
+        root /var/www/foobar;
+      }
+      location ~* \.(gif|jpg)$ {
+        root /var/www/images;
+      }
+      ```
+
+      ---
+
+      ## More
+
+      --
+
+      Named location blocks
+
+      --
+
+      Location block inheritance
+
+      --
+
+      Everything else:
+
+      http://nginx.org/en/docs/http/ngx_http_core_module.html#location
+
+      ---
 
       layout: false
+      class: center, middle
 
-      Location blocks
+      Config changes are not automatically picked up.
 
-      regex
+      You have to tell nginx to reload the config.
 
-      skipping regex
-
-      naming
-
-
-      Virtual hosts
-
+      ```
+      kill -HUP `cat /var/run/nginx.pid`
+      ```
 
       ---
 
 
-      # Reloading and stopping
+      class: center, middle
+
+      Le fin
 
     </textarea>
     <script src="remark.min.js"></script>
