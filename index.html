@@ -70,7 +70,7 @@
 
       --
 
-      - in the default location
+      - in the default location `/usr/local/nginx/conf`
 
       -  where you specified it during the build
 
@@ -115,26 +115,78 @@
       # Syntax and default directives
       ---
 
-      ## What does it look like?
+
+      ## What's a directive?
+
+      --
+
+      There are two types
+
+      ---
+
+      ### Simple directives
+
+      ```
+      name parameters semicolon
+      ```
+
+      --
+
+      ```
+      listen *:80;
+
+      ```
+
+      --
+
+      There can be multiple parameters and they can be optional
+
+      ---
+
+      ### Context directives
+
+      --
+
+      ```
+      name opening_curly
+      simple directive
+      simple directive
+      closing_curly
+      ```
+
+      --
+
+      ```
+      server {
+      listen *:80;
+      server_name "";
+      root /usr/share/nginx/html;
+      }
+      ```
+
+      --
+
+      Can be nested and provide something like inheritance
 
       ---
 
       ### Bare minimum
 
-      ```bash
+      --
+
+      ```
       events {
       }
 
       http {
         server {
-
-      }
+        }
       }
       ```
 
       ---
 
-      ### Default
+      ### Out of the box
 
       ```bash
 
@@ -156,30 +208,85 @@
 
       ---
 
-      directives
+      ## Some notes
 
-      simple: name param semicolon
+      --
 
-      there can be multiple params
+      There is an implicit main context
+
+      --
+
+      Inheritance direction is downward.
+
+      --
+      More curly embraces mean more specificity.
 
 
-      context: {}
+      ---
+
+      ## The events context
+
+      --
+
+      Every worker process is single threaded with a non-blocking event loop.
+      The events context tweaks it.
+
+      --
+
+      There can only be one.
+
+      --
+
+      It must be within the main context.
+
+      ---
+
+      ## Http and server context
+
+      --
+
+      Http context usually holds multiple server contexts
+
+      --
+
+      If multiple servers share directives, put them it the http context
+
+      ---
+
+      ## Whithin the server directive
 
 
-      Typically, simple directives can only be included in specific context directives.
+      --
+
+      ### listen
+
+      --
+
+      ### server_name
+
+      --
+
+      ### root
 
 
       ---
 
-      directive inheritance
+      layout: false
+      class: center, middle
+
+      # Static files and the location block
 
       ---
 
-      main directives
+      layout: true
+
+      #  Static files and the location block
+      ---
+
 
       ---
 
-      reload the process
+      Config changes are not automatically picked up. You have to tell nginx to reload the config.
 
       ---
 
