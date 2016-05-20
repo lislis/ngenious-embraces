@@ -20,6 +20,9 @@
       h2 {
       color: #666;
       }
+      h4 {
+      font-size: 30px;
+      }
       p, li {
         font-size: 28px;
         line-height: 1.5;
@@ -172,10 +175,10 @@
       --
 
       ```
-      name opening_curly
-      simple directive
-      simple directive
-      closing_curly
+      name {
+      simple directive;
+      simple directive;
+      }
       ```
 
       --
@@ -232,7 +235,7 @@
 
       ---
 
-      ## Some notes
+      ### Some notes
 
       --
 
@@ -245,7 +248,7 @@
 
       ---
 
-      ## The events context
+      ### The events context
 
       --
 
@@ -262,7 +265,7 @@
 
       ---
 
-      ## Http and server context
+      ### Http and server context
 
       --
 
@@ -274,24 +277,24 @@
 
       ---
 
-      ## Whithin the server directive
+      ### Whithin the server directive
 
 
       --
 
-      ### listen
+      #### listen
 
       --
 
-      ### server_name
+      #### server_name
 
       --
 
-      ### root
+      #### root
 
       ---
 
-      ## Alphabetical list of all directives
+      ### Alphabetical list of all directives
 
       http://nginx.org/en/docs/dirindex.html
 
@@ -310,7 +313,7 @@
 
       ---
 
-      ## The what and why
+      ### The what and why
 
       --
 
@@ -330,7 +333,7 @@
 
       ---
 
-      ## Basic location
+      ### Basic location
 
       --
 
@@ -349,7 +352,7 @@
 
       ---
 
-      ## Paths
+      ### Paths
 
       --
 
@@ -372,11 +375,11 @@
 
       ---
 
-      ## Modifiers
+      ### Modifiers
 
       --
 
-      ### Exact match =
+      #### Exact match =
 
       --
 
@@ -396,11 +399,11 @@
 
       ---
 
-      ## Regex
+      ### Regex
 
       --
 
-      ### Case sensitive ~
+      #### Case sensitive ~
 
       ```
       location ~ \.(gif|jpg)$ {
@@ -410,7 +413,7 @@
 
       --
 
-      ### Case insensitive ~*
+      #### Case insensitive ~*
 
       ```
       location ~* \.(gif|jpg)$ {
@@ -420,11 +423,11 @@
 
       ---
 
-      ## Regex
+      ### Regex
 
       --
 
-      ### Skip regex ^~
+      #### Skip regex ^~
 
       --
 
@@ -439,7 +442,7 @@
 
       ---
 
-      ## More
+      ### More
 
       --
 
