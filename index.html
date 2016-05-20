@@ -49,9 +49,9 @@
 
       - Finding the config
 
-      - Syntax and default directives
+      - Default directives
 
-      - Other directives]
+      - Location blocks]
 
       ---
 
@@ -95,7 +95,7 @@
 
       ---
 
-      ### How do I use a different conf?
+      ### How do I use a different config?
 
       ```bash
       $ nginx -c /home/user/nginx.conf
@@ -106,17 +106,20 @@
       layout: false
       class: center, middle
 
-      # Syntax and default directives
+      # Default directives
 
       ---
 
       layout: true
 
-      # Syntax and default directives
+      # Default directives
       ---
 
 
       ## What's a directive?
+
+      --
+      The config syntax
 
       --
 
@@ -125,6 +128,9 @@
       ---
 
       ### Simple directives
+
+      --
+      or just directives
 
       ```
       name parameters semicolon
@@ -144,6 +150,9 @@
       ---
 
       ### Context directives
+
+      --
+      or just contexts
 
       --
 
@@ -216,10 +225,7 @@
 
       --
 
-      Inheritance direction is downward.
-
-      --
-      More curly embraces mean more specificity.
+      More curly embraces mean more specificity (-> inheritance)
 
 
       ---
@@ -249,7 +255,7 @@
 
       --
 
-      If multiple servers share directives, put them it the http context
+      If multiple servers share directives, put them in the http context
 
       ---
 
@@ -268,19 +274,24 @@
 
       ### root
 
+      ---
+
+      ## Alphabetical list of all directives
+
+      http://nginx.org/en/docs/dirindex.html
 
       ---
 
       layout: false
       class: center, middle
 
-      # Static files and the location block
+      # Location blocks
 
       ---
 
       layout: true
 
-      #  Static files and the location block
+      # Location blocks
       ---
 
 
